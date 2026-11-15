@@ -1,0 +1,392 @@
+{
+  "leakage_check": {
+    "inside_folds": 0.9211540791468557,
+    "outside_folds": 0.9139430595855588,
+    "difference": -0.007211019561296883
+  },
+  "ablation": [
+    {
+      "variant": "Full model (as tuned)",
+      "cv_kappa": 0.9191147533083586,
+      "cv_kappa_std": 0.004404647545023788,
+      "change": 0.0
+    },
+    {
+      "variant": "Softmax head instead of ordinal",
+      "cv_kappa": 0.9073912710276536,
+      "cv_kappa_std": 0.018191253930431504,
+      "change": -0.011723482280704967
+    },
+    {
+      "variant": "No linear skip path",
+      "cv_kappa": 0.9154926028491707,
+      "cv_kappa_std": 0.011027586815269705,
+      "change": -0.0036221504591879006
+    },
+    {
+      "variant": "One hidden layer instead of 3",
+      "cv_kappa": 0.9149326712255724,
+      "cv_kappa_std": 0.006365309748477493,
+      "change": -0.004182082082786143
+    },
+    {
+      "variant": "No BatchNorm",
+      "cv_kappa": 0.9166094500159674,
+      "cv_kappa_std": 0.006272028788375365,
+      "change": -0.002505303292391181
+    },
+    {
+      "variant": "No dropout",
+      "cv_kappa": 0.9078511638845647,
+      "cv_kappa_std": 0.009289321449398218,
+      "change": -0.011263589423793907
+    },
+    {
+      "variant": "Class weights on",
+      "cv_kappa": 0.9175361628777225,
+      "cv_kappa_std": 0.006851923549092009,
+      "change": -0.0015785904306360177
+    },
+    {
+      "variant": "Label smoothing off",
+      "cv_kappa": 0.9172338998995954,
+      "cv_kappa_std": 0.00674455339145642,
+      "change": -0.0018808534087632056
+    },
+    {
+      "variant": "No feature selection",
+      "cv_kappa": 0.848119781341868,
+      "cv_kappa_std": 0.0292815281386816,
+      "change": -0.07099497196649052
+    },
+    {
+      "variant": "Band-of-term-grade features removed",
+      "cv_kappa": 0.8959160945269997,
+      "cv_kappa_std": 0.021429889167408327,
+      "change": -0.02319865878135885
+    },
+    {
+      "variant": "G2 - G1 trend removed",
+      "cv_kappa": 0.918127281848837,
+      "cv_kappa_std": 0.006361134933140165,
+      "change": -0.000987471459521605
+    },
+    {
+      "variant": "Seed ensemble of 5",
+      "cv_kappa": 0.9142934285552404,
+      "cv_kappa_std": 0.01394718595289108,
+      "change": -0.004821324753118139
+    }
+  ],
+  "grade_setups": [
+    {
+      "setup": "G1 and G2",
+      "model": "GradeNet (ordinal)",
+      "cv_kappa": 0.9191147533083586,
+      "cv_kappa_std": 0.004404647545023788
+    },
+    {
+      "setup": "G1 and G2",
+      "model": "best baseline",
+      "cv_kappa": 0.9111603188686127,
+      "cv_kappa_std": 0.024460486881944982
+    },
+    {
+      "setup": "G1 and G2",
+      "model": "naive band of latest grade",
+      "cv_kappa": 0.9178735491379351,
+      "cv_kappa_std": 0.006997392356537772
+    },
+    {
+      "setup": "G1 only",
+      "model": "GradeNet (ordinal)",
+      "cv_kappa": 0.8096471550698291,
+      "cv_kappa_std": 0.024880298501139483
+    },
+    {
+      "setup": "G1 only",
+      "model": "best baseline",
+      "cv_kappa": 0.7872383081424658,
+      "cv_kappa_std": 0.03972159456505042
+    },
+    {
+      "setup": "G1 only",
+      "model": "naive band of latest grade",
+      "cv_kappa": 0.825203199453315,
+      "cv_kappa_std": 0.018698771752971636
+    },
+    {
+      "setup": "No grades",
+      "model": "GradeNet (ordinal)",
+      "cv_kappa": 0.2089719894210918,
+      "cv_kappa_std": 0.03179493046102591
+    },
+    {
+      "setup": "No grades",
+      "model": "best baseline",
+      "cv_kappa": 0.2199349957936983,
+      "cv_kappa_std": 0.058078551769077676
+    }
+  ],
+  "learning_curve": {
+    "train_sizes": [
+      59,
+      93,
+      128,
+      162,
+      197
+    ],
+    "curves": {
+      "GradeNet (ordinal)": {
+        "mean": [
+          0.9069039262563394,
+          0.9165211692328653,
+          0.9157539738326257,
+          0.9114949273225511,
+          0.9107534190289449
+        ],
+        "std": [
+          0.017739193252185256,
+          0.010448592541212118,
+          0.008751341444246538,
+          0.00434053523792351,
+          0.0032919136104418807
+        ]
+      },
+      "SVM": {
+        "mean": [
+          0.8968058010468415,
+          0.9082693346942321,
+          0.908822863189945,
+          0.9160131200447542,
+          0.9207306234230539
+        ],
+        "std": [
+          0.013820531092374883,
+          0.0077686831091727405,
+          0.0064828727244756355,
+          0.014090511828484403,
+          0.009835843603815168
+        ]
+      }
+    }
+  },
+  "calibration": {
+    "temperature": 0.3890926539046798,
+    "versions": {
+      "before (T = 1)": {
+        "brier": 0.3812144930877954,
+        "ece": 0.21718728309026877,
+        "log_loss": 0.6711759332350977
+      },
+      "after (T = 0.39)": {
+        "brier": 0.3085687006468796,
+        "ece": 0.08986129111732642,
+        "log_loss": 0.5008808196719129
+      }
+    }
+  },
+  "fairness": [
+    {
+      "column": "sex",
+      "value": "F",
+      "students": 53,
+      "weighted_kappa": 0.8818163389418204,
+      "accuracy": 0.7924528301886793,
+      "pass_fail_accuracy": 0.8867924528301887,
+      "actual_at_risk_share": 0.39622641509433965,
+      "predicted_at_risk_share": 0.32075471698113206
+    },
+    {
+      "column": "sex",
+      "value": "M",
+      "students": 46,
+      "weighted_kappa": 0.882051282051282,
+      "accuracy": 0.782608695652174,
+      "pass_fail_accuracy": 0.8695652173913043,
+      "actual_at_risk_share": 0.2391304347826087,
+      "predicted_at_risk_share": 0.2391304347826087
+    },
+    {
+      "column": "school",
+      "value": "GP",
+      "students": 92,
+      "weighted_kappa": 0.8849424712356178,
+      "accuracy": 0.782608695652174,
+      "pass_fail_accuracy": 0.8695652173913043,
+      "actual_at_risk_share": 0.33695652173913043,
+      "predicted_at_risk_share": 0.29347826086956524
+    },
+    {
+      "column": "school",
+      "value": "MS",
+      "students": 7,
+      "weighted_kappa": 0.8444444444444444,
+      "accuracy": 0.8571428571428571,
+      "pass_fail_accuracy": 1.0,
+      "actual_at_risk_share": 0.14285714285714285,
+      "predicted_at_risk_share": 0.14285714285714285
+    },
+    {
+      "column": "address",
+      "value": "R",
+      "students": 16,
+      "weighted_kappa": 0.9069767441860466,
+      "accuracy": 0.8125,
+      "pass_fail_accuracy": 0.875,
+      "actual_at_risk_share": 0.25,
+      "predicted_at_risk_share": 0.25
+    },
+    {
+      "column": "address",
+      "value": "U",
+      "students": 83,
+      "weighted_kappa": 0.87841796875,
+      "accuracy": 0.7831325301204819,
+      "pass_fail_accuracy": 0.8795180722891566,
+      "actual_at_risk_share": 0.3373493975903614,
+      "predicted_at_risk_share": 0.2891566265060241
+    }
+  ],
+  "worst_mistakes": [
+    {
+      "index": 157,
+      "G1": 9,
+      "G2": 8,
+      "G3": 10,
+      "failures": 3,
+      "absences": 6,
+      "higher": "yes",
+      "true_band": 1,
+      "predicted_band": 0,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.9644511044025421
+    },
+    {
+      "index": 281,
+      "G1": 11,
+      "G2": 9,
+      "G3": 10,
+      "failures": 1,
+      "absences": 19,
+      "higher": "yes",
+      "true_band": 1,
+      "predicted_band": 0,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.9280727133154869
+    },
+    {
+      "index": 78,
+      "G1": 8,
+      "G2": 8,
+      "G3": 10,
+      "failures": 3,
+      "absences": 2,
+      "higher": "no",
+      "true_band": 1,
+      "predicted_band": 0,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.9271955713629723
+    },
+    {
+      "index": 190,
+      "G1": 11,
+      "G2": 12,
+      "G3": 13,
+      "failures": 0,
+      "absences": 10,
+      "higher": "yes",
+      "true_band": 2,
+      "predicted_band": 1,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.8878093212842941
+    },
+    {
+      "index": 317,
+      "G1": 9,
+      "G2": 10,
+      "G3": 9,
+      "failures": 0,
+      "absences": 9,
+      "higher": "yes",
+      "true_band": 0,
+      "predicted_band": 1,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.8871087171137333
+    },
+    {
+      "index": 246,
+      "G1": 12,
+      "G2": 12,
+      "G3": 13,
+      "failures": 0,
+      "absences": 4,
+      "higher": "yes",
+      "true_band": 2,
+      "predicted_band": 1,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.8853671327233315
+    },
+    {
+      "index": 235,
+      "G1": 11,
+      "G2": 9,
+      "G3": 10,
+      "failures": 0,
+      "absences": 10,
+      "higher": "yes",
+      "true_band": 1,
+      "predicted_band": 0,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.8735208660364151
+    },
+    {
+      "index": 73,
+      "G1": 12,
+      "G2": 12,
+      "G3": 14,
+      "failures": 0,
+      "absences": 2,
+      "higher": "yes",
+      "true_band": 2,
+      "predicted_band": 1,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.8516524732112885
+    },
+    {
+      "index": 311,
+      "G1": 14,
+      "G2": 12,
+      "G3": 13,
+      "failures": 0,
+      "absences": 20,
+      "higher": "no",
+      "true_band": 2,
+      "predicted_band": 1,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.8418485522270203
+    },
+    {
+      "index": 44,
+      "G1": 10,
+      "G2": 10,
+      "G3": 9,
+      "failures": 1,
+      "absences": 14,
+      "higher": "yes",
+      "true_band": 0,
+      "predicted_band": 1,
+      "bands_off": 1,
+      "confidence_in_prediction": 0.8304995521903038
+    }
+  ],
+  "run_seconds": {
+    "Leakage check": 23,
+    "Ablation": 603,
+    "Grade setups": 83,
+    "Learning curve": 44,
+    "Calibration": 0,
+    "Fairness": 0,
+    "Error analysis": 0
+  }
+}

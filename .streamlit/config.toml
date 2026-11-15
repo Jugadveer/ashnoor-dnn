@@ -1,0 +1,23 @@
+# App look: a maths exercise book. Squared paper, fountain-pen blue ink, and a
+# red marking pen for the answer. One typeface throughout: STIX Two, the font
+# maths papers and textbooks are set in.
+# mathgrades/charts.py reads these colours so the saved charts match the app.
+# The squared paper, margin line and red underline are in exercise_book.css.
+
+[theme]
+base = "light"
+primaryColor = "#22409a"
+backgroundColor = "#fcfcf9"
+secondaryBackgroundColor = "#eef1f6"
+textColor = "#1b2030"
+borderColor = "#b9c4d6"
+showWidgetBorder = true
+baseRadius = "none"
+font = "'STIX Two Text':https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+headingFont = "'STIX Two Text':https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false

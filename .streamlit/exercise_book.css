@@ -1,0 +1,89 @@
+/* Page styling for streamlit_app.py: a page from a squared maths exercise book.
+   Colours and the typeface come from config.toml; this file adds what a theme
+   cannot: the squared paper, the red margin line and the marked answer. */
+
+:root {
+  --ink: #22409a;          /* fountain-pen blue, same as primaryColor */
+  --red-pen: #c8312b;      /* the teacher's marking pen */
+  --grid: #e3e9f2;         /* 5 mm squares */
+  --margin-line: #e7aaa5;
+}
+
+/* Squared paper behind everything, including the top bar. */
+.stApp,
+[data-testid="stHeader"] {
+  background-color: #fcfcf9;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* The red margin line down the left of the written column. */
+[data-testid="stMainBlockContainer"] {
+  border-left: 2px solid var(--margin-line);
+  padding-left: 2.5rem;
+  padding-top: 4rem;
+}
+
+/* Section headings written like the parts of a worked exercise. */
+h3 {
+  color: var(--ink);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.15rem !important;
+  margin-top: 1.6rem !important;
+}
+
+/* The answer, marked in red pen and double-underlined. */
+.answer { margin: 0.4rem 0 0.8rem; }
+.answer .label {
+  font-style: italic;
+  color: var(--red-pen);
+  font-size: 1.05rem;
+}
+.answer .band {
+  display: inline-block;
+  color: var(--red-pen);
+  font-size: 3.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  border-bottom: 5px double var(--red-pen);
+  margin: 0.1rem 0 0.5rem;
+}
+.answer .detail { font-size: 1.1rem; }
+
+/* A remark in the margin, in red, as a teacher would write it. */
+.margin-note {
+  color: var(--red-pen);
+  font-style: italic;
+  border-left: 2px solid var(--red-pen);
+  padding-left: 0.7rem;
+  margin: 0.6rem 0;
+}
+
+/* The working: one line per step, ruled like the page. */
+.working { list-style: none; padding-left: 0; margin: 0; }
+.working li {
+  border-bottom: 1px dotted var(--grid);
+  padding: 0.25rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.working .arrow { color: var(--ink); font-weight: 600; }
+
+/* Tables: ruled lines only, no boxes, numbers lined up. */
+[data-testid="stTable"] table { background: transparent; font-variant-numeric: tabular-nums; }
+[data-testid="stTable"] thead th {
+  font-variant: small-caps;
+  color: var(--ink);
+  border-bottom: 1.5px solid var(--ink) !important;
+}
+[data-testid="stTable"] tbody th { font-weight: 600; }
+[data-testid="stTable"] th,
+[data-testid="stTable"] td {
+  border-left: none !important;
+  border-right: none !important;
+  background: transparent !important;
+}

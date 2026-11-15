@@ -1,0 +1,67 @@
+[
+  {
+    "name": "G2",
+    "group": "Academic",
+    "question": "Second-term maths grade (0-20)",
+    "kind": "number",
+    "low": 0,
+    "high": 19,
+    "start": 11
+  },
+  {
+    "name": "G1",
+    "group": "Academic",
+    "question": "First-term maths grade (0-20)",
+    "kind": "number",
+    "low": 3,
+    "high": 19,
+    "start": 10
+  },
+  {
+    "name": "failures",
+    "group": "Academic",
+    "question": "Classes failed before (3 = three or more)",
+    "kind": "number",
+    "low": 0,
+    "high": 3,
+    "start": 0
+  },
+  {
+    "name": "Medu",
+    "group": "Demographic",
+    "question": "Mother's schooling",
+    "kind": "ordered",
+    "options": [
+      [
+        0,
+        "No schooling"
+      ],
+      [
+        1,
+        "Up to 4th grade"
+      ],
+      [
+        2,
+        "5th-9th grade"
+      ],
+      [
+        3,
+        "Secondary school"
+      ],
+      [
+        4,
+        "University"
+      ]
+    ],
+    "start": 4
+  },
+  {
+    "name": "age",
+    "group": "Demographic",
+    "question": "Age in years",
+    "kind": "number",
+    "low": 15,
+    "high": 22,
+    "start": 17
+  }
+]

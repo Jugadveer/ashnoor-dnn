@@ -1,0 +1,644 @@
+{
+  "train_students": 296,
+  "test_students": 99,
+  "tuning": {
+    "GradeNet (ordinal)": {
+      "best_params": {
+        "n_layers": 3,
+        "first_width": 32,
+        "dropout": 0.1551839518938511,
+        "learning_rate": 0.01287915680524433,
+        "weight_decay": 2.8950186606167575e-06,
+        "batch_size": 32,
+        "class_weighting": false,
+        "label_smoothing": 0.1,
+        "trend": true,
+        "grade_bands": true,
+        "filter_level": 0.001
+      },
+      "best_trial": 14,
+      "tuning_cv_kappa": 0.9211540791468557
+    },
+    "SVM": {
+      "best_params": {
+        "kernel": "linear",
+        "C": 0.8109105411833805,
+        "trend": false,
+        "grade_bands": true,
+        "filter_level": 0.05
+      },
+      "best_trial": 20,
+      "tuning_cv_kappa": 0.9207306234230539
+    },
+    "Gradient boosting": {
+      "best_params": {
+        "learning_rate": 0.013371564499354373,
+        "max_depth": 8,
+        "max_leaf_nodes": 13,
+        "max_iter": 412,
+        "l2_regularization": 6.20320158255408,
+        "trend": false,
+        "grade_bands": true,
+        "filter_level": 0.05
+      },
+      "best_trial": 39,
+      "tuning_cv_kappa": 0.9138386451720316
+    }
+  },
+  "best_baseline": "SVM",
+  "network": {
+    "kept_columns": [
+      "G2_band",
+      "G2",
+      "G1",
+      "G1_band",
+      "failures",
+      "G2_minus_G1",
+      "Medu",
+      "age"
+    ],
+    "raw_inputs": [
+      "G2",
+      "G1",
+      "failures",
+      "Medu",
+      "age"
+    ],
+    "encoded_inputs": 8,
+    "hidden_sizes": [
+      32,
+      16,
+      8
+    ],
+    "trainable_parameters": 1083,
+    "epochs_trained": 76,
+    "temperature": 0.3890926539046798
+  },
+  "models": {
+    "GradeNet (ordinal)": {
+      "cv": {
+        "weighted_kappa": [
+          0.915326367124908,
+          0.01625314378091135
+        ],
+        "accuracy": [
+          0.8356873822975519,
+          0.03407138280004913
+        ],
+        "within_one_band": [
+          1.0,
+          0.0
+        ],
+        "pass_fail_accuracy": [
+          0.9144632768361581,
+          0.033842420978573
+        ]
+      },
+      "test": {
+        "weighted_kappa": 0.8835489833641405,
+        "accuracy": 0.7878787878787878,
+        "macro_f1": 0.7910077519379846,
+        "mean_band_error": 0.21212121212121213,
+        "within_one_band": 1.0,
+        "pass_fail_accuracy": 0.8787878787878788,
+        "at_risk_recall": 0.75
+      },
+      "test_ci": {
+        "weighted_kappa": [
+          0.8254182686636397,
+          0.9301812450925044
+        ],
+        "accuracy": [
+          0.7070707070707071,
+          0.8686868686868687
+        ],
+        "within_one_band": [
+          1.0,
+          1.0
+        ],
+        "pass_fail_accuracy": [
+          0.8181818181818182,
+          0.9393939393939394
+        ],
+        "at_risk_recall": [
+          0.6,
+          0.8888888888888888
+        ]
+      },
+      "test_at_risk_auc": 0.9668843283582089
+    },
+    "SVM": {
+      "cv": {
+        "weighted_kappa": [
+          0.9129997754732884,
+          0.021333321960924165
+        ],
+        "accuracy": [
+          0.831261770244821,
+          0.04217097743483223
+        ],
+        "within_one_band": [
+          0.9988700564971751,
+          0.004227861453981843
+        ],
+        "pass_fail_accuracy": [
+          0.9212241054613934,
+          0.03099765910516069
+        ]
+      },
+      "test": {
+        "weighted_kappa": 0.8938679245283019,
+        "accuracy": 0.797979797979798,
+        "macro_f1": 0.7692034634322508,
+        "mean_band_error": 0.20202020202020202,
+        "within_one_band": 1.0,
+        "pass_fail_accuracy": 0.9090909090909091,
+        "at_risk_recall": 0.875
+      },
+      "test_ci": {
+        "weighted_kappa": [
+          0.8428570510637478,
+          0.936142133008969
+        ],
+        "accuracy": [
+          0.7171717171717171,
+          0.8787878787878788
+        ],
+        "within_one_band": [
+          1.0,
+          1.0
+        ],
+        "pass_fail_accuracy": [
+          0.8484848484848485,
+          0.9595959595959596
+        ],
+        "at_risk_recall": [
+          0.7435714285714285,
+          0.9722222222222222
+        ]
+      },
+      "test_at_risk_auc": null
+    },
+    "Gradient boosting": {
+      "cv": {
+        "weighted_kappa": [
+          0.9095377370249732,
+          0.012708154681016576
+        ],
+        "accuracy": [
+          0.8177024482109229,
+          0.03241212732136086
+        ],
+        "within_one_band": [
+          1.0,
+          0.0
+        ],
+        "pass_fail_accuracy": [
+          0.9201129943502823,
+          0.029595425638462063
+        ]
+      },
+      "test": {
+        "weighted_kappa": 0.8942420681551116,
+        "accuracy": 0.797979797979798,
+        "macro_f1": 0.7795204347623703,
+        "mean_band_error": 0.20202020202020202,
+        "within_one_band": 1.0,
+        "pass_fail_accuracy": 0.9191919191919192,
+        "at_risk_recall": 0.84375
+      },
+      "test_ci": {
+        "weighted_kappa": [
+          0.8409633402748075,
+          0.9358883436911755
+        ],
+        "accuracy": [
+          0.7171717171717171,
+          0.8686868686868687
+        ],
+        "within_one_band": [
+          1.0,
+          1.0
+        ],
+        "pass_fail_accuracy": [
+          0.8585858585858586,
+          0.9696969696969697
+        ],
+        "at_risk_recall": [
+          0.7105050933786078,
+          0.9655172413793104
+        ]
+      },
+      "test_at_risk_auc": 0.9720149253731344
+    },
+    "Dummy: most frequent": {
+      "cv": {
+        "weighted_kappa": [
+          0.0,
+          0.0
+        ],
+        "accuracy": [
+          0.33785310734463275,
+          0.002259887005649719
+        ],
+        "within_one_band": [
+          0.8986440677966103,
+          0.0006779661016949046
+        ],
+        "pass_fail_accuracy": [
+          0.6689265536723165,
+          0.007663649698446612
+        ]
+      },
+      "test": {
+        "weighted_kappa": 0.0,
+        "accuracy": 0.3434343434343434,
+        "macro_f1": 0.12781954887218044,
+        "mean_band_error": 0.7575757575757576,
+        "within_one_band": 0.898989898989899,
+        "pass_fail_accuracy": 0.6767676767676768,
+        "at_risk_recall": 0.0
+      },
+      "test_ci": {
+        "weighted_kappa": [
+          0.0,
+          0.0
+        ],
+        "accuracy": [
+          0.25252525252525254,
+          0.4444444444444444
+        ],
+        "within_one_band": [
+          0.8383838383838383,
+          0.9494949494949495
+        ],
+        "pass_fail_accuracy": [
+          0.5858585858585859,
+          0.7676767676767676
+        ],
+        "at_risk_recall": [
+          0.0,
+          0.0
+        ]
+      },
+      "test_at_risk_auc": 0.5
+    },
+    "Dummy: stratified": {
+      "cv": {
+        "weighted_kappa": [
+          0.05521451323627846,
+          0.09193411711405523
+        ],
+        "accuracy": [
+          0.286120527306968,
+          0.0541183632883429
+        ],
+        "within_one_band": [
+          0.7398870056497174,
+          0.04602609565296509
+        ],
+        "pass_fail_accuracy": [
+          0.5687193973634651,
+          0.04010921001043174
+        ]
+      },
+      "test": {
+        "weighted_kappa": -0.06075334143377864,
+        "accuracy": 0.31313131313131315,
+        "macro_f1": 0.2683123124397453,
+        "mean_band_error": 1.0707070707070707,
+        "within_one_band": 0.6767676767676768,
+        "pass_fail_accuracy": 0.5858585858585859,
+        "at_risk_recall": 0.375
+      },
+      "test_ci": {
+        "weighted_kappa": [
+          -0.2406946746803322,
+          0.12292518573979139
+        ],
+        "accuracy": [
+          0.2222222222222222,
+          0.40404040404040403
+        ],
+        "within_one_band": [
+          0.5858585858585859,
+          0.7676767676767676
+        ],
+        "pass_fail_accuracy": [
+          0.48484848484848486,
+          0.6767676767676768
+        ],
+        "at_risk_recall": [
+          0.2,
+          0.5416964285714284
+        ]
+      },
+      "test_at_risk_auc": 0.5307835820895522
+    },
+    "Naive: band of G2": {
+      "cv": {
+        "weighted_kappa": [
+          0.9178647121067776,
+          0.015049843752477822
+        ],
+        "accuracy": [
+          0.841337099811676,
+          0.029343138660074583
+        ],
+        "within_one_band": [
+          1.0,
+          0.0
+        ],
+        "pass_fail_accuracy": [
+          0.9223540489642184,
+          0.03227762063935624
+        ]
+      },
+      "test": {
+        "weighted_kappa": 0.9097744360902256,
+        "accuracy": 0.8383838383838383,
+        "macro_f1": 0.836603431549579,
+        "mean_band_error": 0.16161616161616163,
+        "within_one_band": 1.0,
+        "pass_fail_accuracy": 0.9090909090909091,
+        "at_risk_recall": 0.875
+      },
+      "test_ci": {
+        "weighted_kappa": [
+          0.8586189287152638,
+          0.9516675457936442
+        ],
+        "accuracy": [
+          0.7676767676767676,
+          0.9090909090909091
+        ],
+        "within_one_band": [
+          1.0,
+          1.0
+        ],
+        "pass_fail_accuracy": [
+          0.8484848484848485,
+          0.9595959595959596
+        ],
+        "at_risk_recall": [
+          0.7435714285714285,
+          0.9722222222222222
+        ]
+      },
+      "test_at_risk_auc": null
+    },
+    "Naive: band of G1": {
+      "cv": {
+        "weighted_kappa": [
+          0.8248160672801366,
+          0.028667135883447097
+        ],
+        "accuracy": [
+          0.658888888888889,
+          0.0527728040112406
+        ],
+        "within_one_band": [
+          1.0,
+          0.0
+        ],
+        "pass_fail_accuracy": [
+          0.8277401129943502,
+          0.04363155068891281
+        ]
+      },
+      "test": {
+        "weighted_kappa": 0.8367466354593329,
+        "accuracy": 0.6868686868686869,
+        "macro_f1": 0.6790179840051963,
+        "mean_band_error": 0.31313131313131315,
+        "within_one_band": 1.0,
+        "pass_fail_accuracy": 0.8686868686868687,
+        "at_risk_recall": 0.78125
+      },
+      "test_ci": {
+        "weighted_kappa": [
+          0.767587666307344,
+          0.8908328808118547
+        ],
+        "accuracy": [
+          0.5959595959595959,
+          0.7777777777777778
+        ],
+        "within_one_band": [
+          1.0,
+          1.0
+        ],
+        "pass_fail_accuracy": [
+          0.8080808080808081,
+          0.9292929292929293
+        ],
+        "at_risk_recall": [
+          0.6388257575757575,
+          0.9117647058823529
+        ]
+      },
+      "test_at_risk_auc": null
+    }
+  },
+  "paired_tests": {
+    "SVM": {
+      "mcnemar": {
+        "a_only_right": 4,
+        "b_only_right": 5,
+        "p_value": 1.0
+      },
+      "five_by_two": {
+        "mean_difference": -0.001947194781037287,
+        "t": 0.21760811473885122,
+        "p_value": 0.8363360809258472
+      }
+    },
+    "Naive: band of G2": {
+      "mcnemar": {
+        "a_only_right": 2,
+        "b_only_right": 7,
+        "p_value": 0.1796875
+      },
+      "five_by_two": {
+        "mean_difference": -0.00904502460379807,
+        "t": -1.2007503788969986,
+        "p_value": 0.28362454597809805
+      }
+    },
+    "Naive: band of G1": {
+      "mcnemar": {
+        "a_only_right": 18,
+        "b_only_right": 8,
+        "p_value": 0.07551869750022888
+      },
+      "five_by_two": {
+        "mean_difference": 0.0837127268384193,
+        "t": 4.886489117144088,
+        "p_value": 0.004527343547220977
+      }
+    }
+  },
+  "permutation_importance": [
+    {
+      "column": "G2",
+      "kappa_drop": 0.6911696358218803,
+      "kappa_drop_std": 0.10499568104346005
+    },
+    {
+      "column": "G1",
+      "kappa_drop": 0.02097434792251309,
+      "kappa_drop_std": 0.022196492144951754
+    },
+    {
+      "column": "school",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "sex",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "Fedu",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "Pstatus",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "address",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "famsize",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "traveltime",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "studytime",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "reason",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "guardian",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "schoolsup",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "famsup",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "Fjob",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "Mjob",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "famrel",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "romantic",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "freetime",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "paid",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "higher",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "internet",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "activities",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "nursery",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "Walc",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "Dalc",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "absences",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "goout",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "health",
+      "kappa_drop": 0.0,
+      "kappa_drop_std": 0.0
+    },
+    {
+      "column": "Medu",
+      "kappa_drop": -0.0008170087289221806,
+      "kappa_drop_std": 0.007573444898619322
+    },
+    {
+      "column": "failures",
+      "kappa_drop": -0.011682908714027534,
+      "kappa_drop_std": 0.005119835066043716
+    },
+    {
+      "column": "age",
+      "kappa_drop": -0.018042185016658153,
+      "kappa_drop_std": 0.00937986798635615
+    }
+  ],
+  "run_seconds": 1218
+}
